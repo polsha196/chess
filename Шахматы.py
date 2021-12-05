@@ -1,13 +1,17 @@
+import logging
+logging.basicConfig(filename='log.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
+
 print("Введите координаты первого поля, на котором стоит Ваша фигура")
 while True: 
     k=input("Координата по вертикали: ")
     try:
         val=int(k)
         if 0<int(k)<9:
-            break
+            break    
         else:
             raise ValueError
     except ValueError:
+        logging.error("Введена неверная координата по вертикали для начального поля!")
         print("Введено некорректное значение. Попробуйте еще раз!")
 while True:
     l=input("Координата по горизонтали: ")
@@ -18,6 +22,7 @@ while True:
         else:
             raise ValueError
     except ValueError:
+        logging.error("Введена неверная координата по горизонтали для начального поля!")
         print("Введено некорректное значение. Попробуйте еще раз!")
 k=int(k)
 l=int(l)
@@ -31,16 +36,18 @@ while True:
         else:
             raise ValueError
     except ValueError:
+        logging.error("Введена неверная координата по вертикали для конечного поля!")
         print("Введено некорректное значение. Попробуйте еще раз!")
 while True:
     n=input("Координата по горизонтали: ")
     try:
         val=int(n)
         if 0<int(n)<9:
-            break
+             break
         else:
             raise ValueError
     except ValueError:
+        logging.error("Введена неверная координата по горизонтали для конечного поля!")
         print("Введено некорректное значение. Попробуйте еще раз!")
 m=int(m)
 n=int(n)
@@ -87,6 +94,7 @@ while True:
             print("Конь не угрожает данному полю")
         break
     else:
+        logging.error("Неверное название фигуры!")
         print("Введено некорректное значение. Попробуйте еще раз")
 
 
